@@ -1,0 +1,290 @@
+@import "stilos";
+
+$background:#767676;
+$color-Dark: #000000;
+$full-Width: 100%;
+$transform-Rot: rotate(360deg);
+$ocult: none;
+.encabezadoDePagina
+{
+    display: $ocult;
+}
+@for $i from 0 through 3{
+
+    .positionOver-#{$i} {z-index: 1 + $i;}
+
+}
+
+@each $navegable in quienesSomos, nuestrosProductos, contacto
+{
+    .#{$navegable}-back{
+        @if $navegable == quienesSomos
+        {
+            background-color: #6c757d;
+            border-bottom:2px solid #fcfcfc ;
+        }
+        @else if $navegable == nuestrosProductos
+        {
+            background-color: #6c757d;
+            border-bottom:2px solid #ffc116 ;
+        }
+
+        @else if $navegable == contacto
+        {
+            background-color: #6c757d;
+            border-bottom:2px solid #ff6516 ;
+        }
+    }
+
+}
+$redes: (
+        twitter: #55acee,
+        facebook:  #3a5795,
+        send-mail: #C25E30,
+        instagram: #AF6DB0,
+        linkedin: #5D6A90,
+        github: #B0B2B6
+); 
+@each $red, $color in $redes {
+    .btn--#{$red} {
+        background-color: $color;
+        padding:0.5rem;
+        border-radius: 20%;
+    }
+}
+
+.backDropNew
+{
+    background: $background;
+    background: -webkit-linear-gradient(right, $background, $color-Dark);
+    background: -moz-linear-gradient(right, $background, $color-Dark);
+    background: linear-gradient(to left, $background, $color-Dark);
+}
+
+.containerSizing {
+    $background: $background;
+    background: linear-gradient(to right, $color-Dark 18%, $background 60%);
+}
+.PerfilNavegable_contenido-Logger {
+    float: right;
+    margin-top: -7rem; }
+
+.PerfilNavegable__Urls{
+    display:flex;
+    width:$full-Width;
+    height:10vh;
+    justify-content: flex-end;
+    margin-top: -2.6rem;
+    align-items: stretch;
+        li
+        {
+            margin-left:30px;
+            text-decoration: none;
+            list-style: none;
+            font-family: 'Original Surfer', cursive;
+            background-color: #6c757d;
+            letter-spacing: 2px;
+            text-align: center;
+            padding-top: 1%;
+            padding-left:1%;
+            padding-right:1%;
+            padding-bottom:0;
+            transition: all 0.8s;
+                a
+                {
+                    color:#C9C9C9;
+                    text-decoration: none;
+                }
+            
+        }
+}
+
+.videoSizing {
+    width: $full-Width;
+    height: 22.5rem;
+    margin-top: 1rem;
+    border: 0.3rem inset #283846;
+    background: $background;
+    background: -webkit-linear-gradient(right, $background, $color-Dark);
+    background: -moz-linear-gradient(right, $background, $color-Dark);
+    background: linear-gradient(to left, $background, $color-Dark);
+}
+
+.PerfilNavegable__contenido img {
+    z-index: 2;
+    margin-left: -1rem;
+    position: absolute;
+    height: 9rem;
+    width: 12rem;
+    float: left;
+    animation-name: anima;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 5s;
+    animation-delay: 0;
+}
+
+@keyframes anima {
+    0% {
+        height: 170vh;
+        width: $full-Width;
+        transform: $transform-Rot;
+    }
+
+    20% {
+        height: 125vh;
+        width: $full-Width;
+    }
+
+    50% {
+        transform: $transform-Rot;
+    }
+
+    70% {
+        opacity: .9;
+    }
+
+    80% {
+        opacity: .7;
+    }
+}
+
+@media (min-width:641px) and (max-width:812px)
+{
+    .PerfilNavegable__contenido img {
+        margin-left: -1rem;
+        position: absolute;
+        height: 12rem;
+        width: 25rem;
+        float: left;
+    }
+    .PerfilNavegable__Urls{
+        display:flex;
+        width:$full-Width;
+        height:30vh;
+        justify-content: flex-end;
+        align-items: stretch;
+    
+    }
+    .PerfilNavegable__Urls li
+    {
+    margin-left:0;
+    margin-top: 10rem;
+    height: 3.2rem;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Original Surfer', cursive;
+    background-color: #6c757d;
+    letter-spacing: 2px;
+    text-align: center;
+    padding-top: 1%;
+    padding-left:1%;
+    padding-right:1%;
+    padding-bottom:0;
+    transition: all 0.8s;
+    
+    }
+
+    .firstDrop {
+        display: none;
+    }
+
+    .videoSizing {
+        width: 43vh;
+        height: 20rem;
+        margin-top: 10rem;
+        border: 0.3rem inset #283846;
+        background: $background;
+        background: -webkit-linear-gradient(right, $background, $color-Dark);
+        background: -moz-linear-gradient(right, $background, $color-Dark);
+        background: linear-gradient(to left, $background, $color-Dark);
+    }
+    .buttonSizing {
+        display: none;
+    }
+    .galeria
+    {
+        display: none;
+    }
+    .mobileDrop
+    {
+        display: none;
+    }
+    .footerMobile
+    {
+        margin-top: -20rem;
+    }
+    
+
+}
+
+@media only screen and (max-width:640px)
+{
+    .PerfilNavegable__contenido img {
+        margin-left: -1rem;
+        position: absolute;
+        height: 15rem;
+        width: 25rem;
+        float: left;
+    }
+    .PerfilNavegable__Urls{
+        display:flex;
+        width:$full-Width;
+        height:30vh;
+        justify-content: flex-end;
+        align-items: stretch;
+    
+    }
+    .PerfilNavegable__Urls li
+    {
+    margin-left:0;
+    margin-top: 10rem;
+    height: 3.2rem;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Original Surfer', cursive;
+    background-color: #6c757d;
+    border:2px inset #C9C9C9;
+    letter-spacing: 2px;
+    text-align: center;
+    padding-top: 1%;
+    padding-left:1%;
+    padding-right:1%;
+    padding-bottom:0;
+    transition: all 0.8s;
+    
+    }
+
+    .firstDrop {
+        display: none;
+    }
+
+    .videoSizing {
+        width: 43vh;
+        height: 20rem;
+        margin-top: 1rem;
+        margin-left: 2rem;
+        border: 0.3rem inset #283846;
+        background: $background;
+        background: -webkit-linear-gradient(right, $background, $color-Dark);
+        background: -moz-linear-gradient(right, $background, $color-Dark);
+        background: linear-gradient(to left, $background, $color-Dark);
+    }
+    .buttonSizing {
+        display: none;
+    }
+    .galeria
+    {
+        display: none;
+    }
+    .mobileDrop
+    {
+        display: none;
+    }
+    .footerMobile
+    {
+        margin-top: -20rem;
+    }
+    
+
+}
